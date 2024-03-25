@@ -34,27 +34,21 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'corsheaders',
-=======
     'apps.employee',
     'corsheaders',
     'apps.user',
     'apps.company',
     # 'rest_framework',
     # 'apps.company',
->>>>>>> feature/module-employee
 ]
 
 # Se definen las aplicaciones del proyecto
 PROJECT_APPS = [
-<<<<<<< HEAD
     # 'apps.company'
     'apps.payrolls',
     'apps.employee',
-=======
 
->>>>>>> feature/module-employee
 ]
 
 # Se definen las aplicaciones de terceros
@@ -123,37 +117,35 @@ else:
     #agregar cuando este en true
 
 # Se configuran las opciones de CORS
-<<<<<<< HEAD
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'http://localhost:3000',
     'http://127.0.0.1:3000',
 ]
-=======
-    CORS_ALLOWED_ORIGINS = [
+
+CORS_ALLOWED_ORIGINS = [
         
         'http://localhost:3000',
         'http://127.0.0.1:3000',
     ]
->>>>>>> feature/module-employee
 
 
-    CORS_ORIGIN_WHITELIST = [
+CORS_ORIGIN_WHITELIST = [
         'http://localhost:3000',
         'http://localhost:8000',
         'http://127.0.0.1:8000',
         'http://127.0.0.1:3000',
     ]
 
-    CSRF_TRUSTED_ORIGINS = [
+CSRF_TRUSTED_ORIGINS = [
         'http://localhost:3000',
         'http://localhost:8000',
         'http://127.0.0.1:8000',
         'http://127.0.0.1:3000',
     ]
 
-    PASSWORD_HASHERS = [
+PASSWORD_HASHERS = [
         "django.contrib.auth.hashers.Argon2PasswordHasher",
         "django.contrib.auth.hashers.PBKDF2PasswordHasher",
         "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
