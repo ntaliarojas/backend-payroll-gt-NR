@@ -1,37 +1,32 @@
+# Directorios y archivos generados por Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Directorio de entorno virtual (si se usa)
+venv/
+env/
+
+# Directorio de dependencias de Node.js
+node_modules/
 
 # Archivos de configuración local
-*.env
-*.pyc
+.env
+
+# Archivos de migraciones de Django
+/migrations/
+
+# Archivos de logs
+*.log
+
+# Archivos de base de datos SQLite
 *.sqlite3
 
-# Directorio de archivos estáticos generados
-staticfiles/
+# Archivos de IDE y editores de texto
+.idea/
+.vscode/
 
-# Directorio de archivos de compilación
-node_modules/
-bower_components/
-
-# Archivo de base de datos local
-db.sqlite3
-
-# Migraciones
-apps/employee/migrations
-apps/company/migrations
-apps/users/migrations
-apps/payrolls/migrations
-
-
-gitignore:
-  - .gitignore
-  - .git/
-  - .idea/
-  - .vscode/
-  - .db.sqlite3
-  - db.sqlite3
-  - __pycache__/
-  - venv/
-  - .venv/
-  - .env
-  - .DS_Store
-
-
+# Otros
+.DS_Store
+*.bak
+*.swp

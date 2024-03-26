@@ -16,6 +16,7 @@ import os
 import environ
 from datetime import timedelta
 
+
 env = environ.Env()
 environ.Env.read_env()
 
@@ -24,8 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='secret!')
 
 ALLOWED_HOSTS = ['*']
-
-
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -39,6 +38,10 @@ DJANGO_APPS = [
     'corsheaders',
     'apps.user',
     'apps.company',
+    'corsheaders',
+    #'apps.employee',
+    #'apps.user',
+    #'apps.company',
     # 'rest_framework',
     # 'apps.company',
 ]
@@ -46,8 +49,13 @@ DJANGO_APPS = [
 # Se definen las aplicaciones del proyecto
 PROJECT_APPS = [
     # 'apps.company'
+    # 'apps.payrolls',
+    # 'apps.employee',
+    # 'apps.company',
+    # 'apps.company'
     'apps.payrolls',
-    'apps.employee',
+    # 'apps.employee',
+    # 'apps.user',
 
 ]
 
@@ -92,31 +100,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-DEBUG = bool(os.environ.get('DEBUG', True))
+DEBUG = bool(os.environ.get('DEBUG', False))
 
-if DEBUG:
-    # Configuración de la base de datos para entorno de desarrollo
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
-else:
-    # Configuración de la base de datos para entorno de producción
-    DATABASES = {
-        'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get("DB_NAME"),
-        'USER': os.environ.get("DB_USER"),
-        'PASSWORD': os.environ.get("DB_PASSWORD"),
-        'HOST': os.environ.get("DB_HOST"),
-        'PORT': os.environ.get("DB_PORT"),
-        }
-    }
-    #agregar cuando este en true
+
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': os.environ.get("DB_NAME"),
+    'USER': os.environ.get("DB_USER"),
+    'PASSWORD': os.environ.get("DB_PASSWORD"),
+    'HOST': os.environ.get("DB_HOST"),
+    'PORT': os.environ.get("DB_PORT"),
+    },
+}
 
 # Se configuran las opciones de CORS
+
+    
+CORS_ALLOWED_ORIGINS = [
+        'http://localhost:5173',
+        'http://127.0.0.1:5173',
+        'http://localhost:3000',
+        'http://127.0.0.1:3000',
+    ]
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
@@ -151,6 +157,28 @@ PASSWORD_HASHERS = [
         "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
         "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
     ]
+
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3000',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+    'http://127.0.0.1:3000',
+]
+
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+]
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -203,7 +231,8 @@ REST_FRAMEWORK = {
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-<<<<<<< HEAD
-=======
+
+
 AUTH_USER_MODEL = 'user.User'
->>>>>>> feature/module-employee
+
+
