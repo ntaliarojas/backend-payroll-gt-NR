@@ -35,10 +35,8 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'apps.employee',
-    'corsheaders',
     'apps.user',
     'apps.company',
-    'corsheaders',
     #'apps.employee',
     #'apps.user',
     #'apps.company',
@@ -102,16 +100,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DEBUG = bool(os.environ.get('DEBUG', False))
 
-
 DATABASES = {
-    'default': {
-    'ENGINE': 'django.db.backends.postgresql',
-    'NAME': os.environ.get("DB_NAME"),
-    'USER': os.environ.get("DB_USER"),
-    'PASSWORD': os.environ.get("DB_PASSWORD"),
-    'HOST': os.environ.get("DB_HOST"),
-    'PORT': os.environ.get("DB_PORT"),
-    },
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get("DB_NAME"),
+        'USER': os.environ.get("DB_USER"),
+        'PASSWORD': os.environ.get("DB_PASSWORD"),
+        'HOST': os.environ.get("DB_HOST"),
+        'PORT': os.environ.get("DB_PORT"),
+},
 }
 
 # Se configuran las opciones de CORS
@@ -123,19 +120,6 @@ CORS_ALLOWED_ORIGINS = [
         'http://localhost:3000',
         'http://127.0.0.1:3000',
     ]
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-]
-
-CORS_ALLOWED_ORIGINS = [
-        
-        'http://localhost:3000',
-        'http://127.0.0.1:3000',
-    ]
-
 
 CORS_ORIGIN_WHITELIST = [
         'http://localhost:3000',
