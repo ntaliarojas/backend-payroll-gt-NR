@@ -102,7 +102,7 @@ DEBUG = bool(os.environ.get('DEBUG', False))
 
 DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get("DB_NAME"),
         'USER': os.environ.get("DB_USER"),
         'PASSWORD': os.environ.get("DB_PASSWORD"),
@@ -119,6 +119,8 @@ CORS_ALLOWED_ORIGINS = [
         'http://127.0.0.1:5173',
         'http://localhost:3000',
         'http://127.0.0.1:3000',
+        'https://front-payroll-gt-nr.onrender.com',  # Agregar esta línea
+
     ]
 
 CORS_ORIGIN_WHITELIST = [
@@ -126,6 +128,8 @@ CORS_ORIGIN_WHITELIST = [
         'http://localhost:8000',
         'http://127.0.0.1:8000',
         'http://127.0.0.1:3000',
+        'https://front-payroll-gt-nr.onrender.com',  # Agregar esta línea
+
     ]
 
 CSRF_TRUSTED_ORIGINS = [
